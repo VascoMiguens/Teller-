@@ -17,7 +17,7 @@ const Navbar = () => {
 
     
   const mobileNavbar = (
-     <nav className="bg-black w-screen flex justify-between p-4 fixed ">
+     <nav className="bg-transparent w-screen flex justify-between p-4 fixed ">
         {/* Mobile Navbar content */}
         <div className="md:hidden w-full">
             {/* Hamburger menu */}
@@ -109,9 +109,9 @@ const Navbar = () => {
   );
 
   const desktopNavbar = (
-    <nav className="bg-black flex justify-between p-4">
+    <nav className="bg-transparent flex flex-row items-center w-screen p-5 fixed z-10">
       {/* Desktop Navbar content */}
-      <div className="flex items-center">
+      <div className='flex items-cente basis-1/4'>
         <ul className="flex space-x-4">
           <li>
             <Link href="#home" className="text-white hover:text-gray-300">
@@ -131,11 +131,10 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="flex justify-center flex-grow">
+      <div className="flex items-center justify-center basis-1/2">
         <Image src="/images/_Teller_-_W.png" width={200} height={100} alt="Teller" />
       </div>
-
-      <div className="flex items-center">
+      <div className="flex justify-end basis-1/4">
         <ul className="flex space-x-4">
           <li>
             <Link
@@ -186,7 +185,7 @@ const Navbar = () => {
   return (
     <>
       <div className="md:hidden">{mobileNavbar}</div>
-      <div className="hidden md:block lg:block xl:block">{desktopNavbar}</div>
+      <div className="hidden md:flex md:justify-center lg:flex lg:justify-center xl:flex xl:justify-center">{desktopNavbar}</div>
     </>
   );
 
