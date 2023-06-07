@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { SpotifyService } from "../../../services/spotifyService";
 import { MdNavigateNext, MdNavigateBefore} from 'react-icons/md';
+import Image from "next/image";
 
 // Album type
 type Album = {
@@ -54,14 +55,14 @@ const Music = () => {
         <div className="bg-overlay h-screen">
             <h1 className="text-7xl text-gray-500 flex justify-end font-bold mr-5 p-5">Music</h1>
             <div className="flex items-center justify-center">
-                <div className="ml-10 basis-1/2 flex justify-center mr-5">
-                    <div className="w-80 flex text-white justify-between">
+                <div className="ml-10 flex flex-col basis-1/2 mr-5">
+                    <div className="flex text-white justify-between">
                         <button className="prev text-5xl" onClick={prevAlbum}>
                             <MdNavigateBefore/>
                         </button>
                         <div className="flex items-center">
                             <img src={albums[currentAlbumIndex]?.images[0]?.url}
-                            alt={albums[currentAlbumIndex]?.name} className="album-thumbnail" />
+                            alt={albums[currentAlbumIndex]?.name} className="mr-10" width={50} />
                             <p className="text-2xl">
                                 {albums[currentAlbumIndex]?.name}   
                             </p>
@@ -70,9 +71,12 @@ const Music = () => {
                             <MdNavigateNext />
                         </button>
                     </div>
+                    <div className="flex justify-center">
+                        <img src={albums[currentAlbumIndex]?.images[0]?.url} alt={albums[currentAlbumIndex]?.name}  className="mt-5" width={250}/>
+                    </div>
                 </div>
                 <div className="ml-10 basis-1/2 flex justify-center mr-5">
-                    
+
                 </div>
             </div>
         </div>
