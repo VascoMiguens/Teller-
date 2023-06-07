@@ -69,4 +69,26 @@ export class SpotifyService {
       console.error('Failed to fetch artist albums from Spotify API', error);
     }
   }
+  // Method to get an album's tracks from the Spotify API
+  public async getAlbumTracks(albumId: string) {
+    // If not authenticated, log an error and return
+    if (!this.accessToken) {
+      console.error('Not authenticated with Spotify API');
+      return;
+    }
+    // Define the headers for the request
+    const headers = {
+      'Authorization': 'Bearer ' + this.accessToken,
+    };
+
+    try {
+      // Make the request for the album's tracks
+      const response = await axios.get(`https://api.spotify.com/v1/albums/${albumId}/tracks`, { headers });
+
+      // Return the tracks
+      return response.data.items;
+    } catch (error) {
+      console.error('Failed to fetch album tracks from Spotify API', error);
+    }
+  }
 }
