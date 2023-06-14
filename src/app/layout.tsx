@@ -4,7 +4,6 @@ import "./styles/main.scss"
 import Navbar from './components/navbar'
 const inter = Inter({ subsets: ['latin'] })
 
-
 export const metadata = {
   title: 'Teller',
 }
@@ -18,9 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <div className='container'>
-          {children}  
-        </div>
+          {children}
         </body>
     </html>
   )

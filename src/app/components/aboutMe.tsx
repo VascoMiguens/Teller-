@@ -4,7 +4,7 @@ const AboutMe = () => {
     return (
       <div className="bg-cover bg-center bg-image h-screen relative">
         <div className="bg-overlay h-screen">
-          <h1 className="text-7xl text-gray-500 font-bold ml-5 p-5">About me</h1>
+          <h1 className="text-5xl text-gray-500 font-bold ml-5 p-3">About me</h1>
           <div className="flex items-center justify-center">
             <div className="ml-10 basis-1/2 flex justify-center mr-5">
               <p className="text-white">Del timent. Rebel behan. Ukara egortad. Jara porade. Decir. Tevit antenade. Dosesat semirövis. Immersiv tepängen. Kat fabelt. Parartad guligen. 

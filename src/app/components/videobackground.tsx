@@ -62,7 +62,7 @@ const VideoBackground = () => {
       playsinline: 1,
       iv_load_policy: 3,
       start: 0,
-      end: 180,
+      end: 185,
       autohide: 1,
       disablekb: 1,
       enablejsapi: 1,

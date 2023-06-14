@@ -1,8 +1,24 @@
-import Image from 'next/image'
+"use client"
+import AboutMe from "./components/aboutMe";
+import Music from "./components/music";
+import VideoBackground from "./components/videobackground";
+import Videos from "./components/videos";
 
-export default function Home() {
+const Home: React.FC = () => {
+  
+
   return (
-    <div>
-      <h1>Home</h1>
-    </div>  )
-}
+    <div className="">
+      <VideoBackground />
+      <AboutMe />
+      <Music />
+      <Videos />
+    </div>
+    
+
+  );
+};
+
+
+export default Home;
+
