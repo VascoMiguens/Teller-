@@ -1,6 +1,6 @@
 import { useState } from "react";
 import YouTube from "react-youtube";
-import { AiOutlineClose} from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Videos = () => {
   const [mediaItems, setMediaItems] = useState<string[]>([
@@ -21,16 +21,18 @@ const Videos = () => {
     "c422af04-8f96-46b5-a0e6-e30fe923dfc2.JPG"
   ]);
 
-  const videoNames = useState<string[]>([
-    "estorias",
+  const [openModal, setOpenModal] = useState(false);
+  const [videoId, setVideoId] = useState<string | undefined>(undefined);
+
+  const videoNames = [
+    "estórias",
     "Livre",
     "Ponte",
     "Dois Passos",
     "Caminhada"
-  ])
+  ];
 
-  const [openModal, setOpenModal] = useState(false);
-  const [videoId, setVideoId] = useState<string | undefined>(undefined);
+  let videoIndex = 0; // Index for videoNames
 
   const openVideoModal = (videoId: string) => {
     setVideoId(videoId);
@@ -62,24 +64,32 @@ const Videos = () => {
                   key={`image-${index}`}
                   src={`/images/${item}`}
                   alt="Image"
-                  className={`w-full h-full object-cover `}
+                  className="w-full h-full object-cover"
                 />
               );
             } else if (item.includes("https://www.youtube.com/watch?v=")) {
               const videoId = item.split("=").pop();
+              const videoName = videoNames[videoIndex];
+              videoIndex++; // Increment videoIndex for video names
               return (
                 <div
                   key={`video-${index}`}
                   onClick={() => openVideoModal(videoId || "")}
-                  className={`relative cursor-pointer hover:scale-105 hover:z-50 hover:transition duration-300 col-span-2`}
+                  className="group  relative flex justify-center cursor-pointer overflow-hidden hover:scale-105 hover:z-50 hover:transition duration-300 col-span-2"
                 >
-                  <img className="h-full w-full object-cover" src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} alt="Video Thumbnail" />
+                  <img
+                    className="h-full w-full object-cover"
+                    src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                    alt="Video Thumbnail"
+                  />
+                  <div className="absolute bg-black w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-80" >
+                  <p className="absolute text-3xl text-white top-5 left-10 video-name">{videoName}</p>
+                  </div>
                   <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
                     <svg className="fill-white w-36 h-36" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
-                  <p className="absolute text-white bottom-5 right-10"></p>
                 </div>
               );
             } else {
